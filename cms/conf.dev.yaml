@@ -1,0 +1,52 @@
+env: development # development|testing|production
+logger:
+  level: 5 # 0:None,1:Fatal,2:Error,3:Warn,4:Info,5:Debug,6:All
+  topic: cms
+  output: file # file|std|fmt
+  cipherkey: vgPJEhigMstRETQs # 16/24/32 characters
+  cipherfields: # ignore case, fuzzy matching
+    - secret
+    - phone
+    - password
+handler:
+  cos: # Tencent Cloud Object Storage
+    bucketurl: https://BUCKET_NAME-APPID.cos.REGION.myqcloud.com
+    serviceurl: https://cos.REGION.myqcloud.com
+    secretid: xxxxxxSecretIDxxxxxx
+    secretkey: xxxxxxSecretKeyxxxxxx
+#  oss: # Aliyun Object Storage Service
+#    endpoint: https://oss-REGION.aliyuncs.com
+#    keyid: xxxxxxKeyIDxxxxxx
+#    keysecret: xxxxxKeySecretxxxxxx
+#    bucketname: xxxxxBucketNamexxxxx
+  cdn: https://cdn.domain.cn
+  captcha: Du2_uEXoxAXLopLjAFYf # Any Characters
+  aes:
+    key: a0EYDkdjIvn4N92U
+    iv: Te76o8pw0h9wRW1e
+service:
+  mysql:
+    address: host.docker.internal:3306
+    username: root
+    password: root
+    database: go_project
+    maxopen: 50
+    maxidle: 1
+    maxlifetime: 1h
+    maxidletime: 5m
+    tracelog: true
+  redis:
+    address: host.docker.internal:6379
+    username:
+    password:
+    db: 0
+    poolsize: 50
+    minidle: 1
+    maxidle: 10
+#    servername:
+#    cert: |
+#    key: |
+#    ca: |
+    tracelog: false
+  nsq:
+    producer: host.docker.internal:4150

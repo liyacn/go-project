@@ -1,0 +1,47 @@
+env: development # development|testing|production
+logger:
+  level: 5 # 0:None,1:Fatal,2:Error,3:Warn,4:Info,5:Debug,6:All
+  topic: api
+  output: file # file|std|fmt
+  cipherkey: vgPJEhigMstRETQs # 16/24/32 characters
+  cipherfields: # ignore case, fuzzy matching
+    - secret
+    - phone
+    - password
+handler:
+  ips: # allow-list in non-production environments
+    - 127.0.0.1
+    - localhost
+  cdn: https://cdn.domain.cn
+  wechat:
+    appid: wx1c0dxxxxxx45dec0
+    secret: 5975a95xxxxxxxxxxxxxxxxx0e67c15
+  aes:
+    key: a0EYDkdjIvn4N92U
+    iv: Te76o8pw0h9wRW1e
+service:
+  mysql:
+    address: host.docker.internal:3306
+    username: root
+    password: root
+    database: go_project
+    maxopen: 50
+    maxidle: 5
+    maxlifetime: 1h
+    maxidletime: 5m
+    tracelog: true
+  redis:
+    address: host.docker.internal:6379
+    username:
+    password:
+    db: 0
+    poolsize: 50
+    minidle: 5
+    maxidle: 20
+#    servername:
+#    cert: |
+#    key: |
+#    ca: |
+    tracelog: false
+  nsq:
+    producer: host.docker.internal:4150

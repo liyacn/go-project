@@ -1,0 +1,25 @@
+version: "2"
+
+linters:
+  default: none
+  enable:
+    - bodyclose
+    - canonicalheader
+    - govet
+    - ineffassign
+    - intrange
+    - lll
+    - mirror
+    - modernize
+    - musttag
+    - perfsprint
+    - prealloc
+    - reassign
+    - recvcheck
+    - staticcheck
+    - unconvert
+    - unused
+    - usestdlibvars
+    - wastedassign
+    - whitespace
+

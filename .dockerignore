@@ -1,0 +1,15 @@
+.idea
+.vscode
+*.DS_Store
+*--*
+vendor
+*.log
+*/conf.dev.yaml
+api/api*
+cms/cms*
+task/task*
+
+design
+.*ignore
+.golangci.yaml
+*README.md
